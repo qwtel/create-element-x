@@ -89,6 +89,7 @@ Instead of `pragma`, configure babel, e.g. via `.babelrc`:
 ### I don't like monkey-patching...
 ```js
 import { createElement } from 'create-element-extended/fn'
+/* pragma: createElement */
 ```
 
 ### How do I use dis with `jsdom` or other DOM implementations?
