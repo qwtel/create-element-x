@@ -5,6 +5,8 @@ Extends the native DOM `document.createElement` method to conform to the target 
 
 This is useful when frequently creating DOM nodes on the fly.
 
+E.g.:
+
 ```js
 function makeSpinner(id) {
   const div = document.createElement('div');
@@ -36,7 +38,7 @@ function makeSpinner(id) {
 }
 ```
 
-With `create-element-extended` this becomes:
+With `create-element-extended`, this becomes:
 
 ```js
 import 'create-element-extended';
@@ -90,6 +92,36 @@ Instead of `pragma`, configure babel, e.g. via `.babelrc`:
 ```js
 import { createElement } from 'create-element-extended/library'
 /* pragma: createElement */
+```
+
+### How is this different from `jsx-dom`, `jsx-create-element`, `nativejsx`, and `jsx-foobar`?
+This package does less. All I wanted was to create a DOM node.
+
+Here is almost the entire source code:
+
+```js
+export const createCreateElement = createElement => (tagName, attributes, children) => {
+  const el = createElement(tagName);
+
+  if (attributes) {
+    Object.keys(attributes).forEach(attr => el.setAttribute(attr, attributes[attr]));
+  }
+
+  if (children) {
+    if (Array.isArray(children)) children.forEach(appendChild, el);
+    else appendChild.call(el, children);
+  }
+
+  return el;
+};
+
+function appendChild(c) {
+  if (typeof c === 'string') {
+    this.appendChild(document.createTextNode(c));
+  } else {
+    this.appendChild(c);
+  }
+}
 ```
 
 ### How do I use dis with `jsdom` or other DOM implementations?
