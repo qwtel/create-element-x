@@ -97,31 +97,30 @@ import { createElement } from 'create-element-extended/library'
 ### How is this different from `jsx-dom`, `jsx-create-element`, `nativejsx`, and `jsx-foobar`?
 This package does less. All I wanted was to create a DOM node.
 
-Here is almost the entire source code:
+Here is (almost) the entire source code:
 
 ```js
-export const createCreateElement = createElement => (tagName, attributes, children) => {
-  const el = createElement(tagName);
-
-  if (attributes) {
-    Object.keys(attributes).forEach(attr => el.setAttribute(attr, attributes[attr]));
+export const createCreateElement = (createElement, createTextNode) => {
+  function appendChild(c) {
+    if (typeof c === 'string') this.appendChild(createTextNode(c));
+    else this.appendChild(c);
   }
 
-  if (children) {
-    if (Array.isArray(children)) children.forEach(appendChild, el);
-    else appendChild.call(el, children);
-  }
+  return (tagName, attributes, children) => {
+    const el = createElement(tagName);
 
-  return el;
+    if (attributes) {
+      Object.keys(attributes).forEach(attr => el.setAttribute(attr, attributes[attr]));
+    }
+
+    if (children) {
+      if (Array.isArray(children)) children.forEach(appendChild, el);
+      else appendChild.call(el, children);
+    }
+
+    return el;
+  };
 };
-
-function appendChild(c) {
-  if (typeof c === 'string') {
-    this.appendChild(document.createTextNode(c));
-  } else {
-    this.appendChild(c);
-  }
-}
 ```
 
 ### How do I use dis with `jsdom` or other DOM implementations?
@@ -133,6 +132,7 @@ const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 
 const createElement = createCreateElement(
   tagName => dom.window.document.createElement(tagName),
+  str => dom.window.document.createTextNode(str),
 );
 ```
 
