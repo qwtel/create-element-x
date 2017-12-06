@@ -1,7 +1,7 @@
 # Create Element Extended
 Extends the native DOM `document.createElement` method to conform to the target API of JSX transpilation, i.e.
 
-`createElement(tagName [, attributes [, children]])`
+    createElement(tagName [, attributes [, children]])
 
 This is useful when frequently creating DOM nodes on the fly.
 
