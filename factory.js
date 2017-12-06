@@ -19,7 +19,7 @@ export const createCreateElement = createElement => (tagName, attributes, childr
 
   if (children) {
     if (Array.isArray(children)) children.forEach(appendChild, el);
-    else appendChild.call(el, children)
+    else appendChild.call(el, children);
   }
 
   return el;

@@ -88,7 +88,7 @@ Instead of `pragma`, configure babel, e.g. via `.babelrc`:
 ## FAQ
 ### I don't like monkey-patching...
 ```js
-import { createElement } from 'create-element-extended/fn'
+import { createElement } from 'create-element-extended/library'
 /* pragma: createElement */
 ```
 

@@ -2,10 +2,10 @@
   "name": "create-element-extended",
   "version": "0.1.0",
   "description": "Extension of the native DOM createElement method to match JSX",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",
