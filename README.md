@@ -3,7 +3,7 @@ Extends the native DOM `document.createElement` method to conform to the target 
 
 `createElement(tagName [, attributes [, children]])`
 
-This is useful when frequently creating DOM nodes on-the-fly, without the help of jQuery et al.
+This is useful when frequently creating DOM nodes on the fly.
 
 ```js
 function makeSpinner(id) {
@@ -36,7 +36,7 @@ function makeSpinner(id) {
 }
 ```
 
-With `create-element-extended` you can instead write:
+With `create-element-extended` this becomes:
 
 ```js
 import 'create-element-extended';
