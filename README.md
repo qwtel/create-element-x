@@ -95,7 +95,7 @@ import { createElement } from 'create-element-extended/fn'
 ### How do I use dis with `jsdom` or other DOM implementations?
 ```js
 import { JSDOM } from 'jsdom';
-import { createCreateElement } from 'create-element-extended';
+import { createCreateElement } from 'create-element-extended/factory';
 
 const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 
