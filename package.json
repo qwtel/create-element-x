@@ -21,5 +21,13 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwtel/create-element-extended.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qwtel/create-element-extended/issues"
+  },
+  "homepage": "https://github.com/qwtel/create-element-extended#readme"
 }
