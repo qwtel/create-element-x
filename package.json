@@ -1,6 +1,6 @@
 {
   "name": "create-element-extended",
-  "version": "1.0.0-pre",
+  "version": "1.0.0-pre.0",
   "description": "Extension of the native DOM createElement method to match JSX",
   "main": "index.js",
   "scripts": {
