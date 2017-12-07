@@ -29,5 +29,11 @@
   "bugs": {
     "url": "https://github.com/qwtel/create-element-extended/issues"
   },
-  "homepage": "https://github.com/qwtel/create-element-extended#readme"
+  "homepage": "https://github.com/qwtel/create-element-extended#readme",
+  "keywords": [
+    "dom",
+    "jsx",
+    "create-element",
+    "element"
+  ]
 }
