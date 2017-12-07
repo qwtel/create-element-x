@@ -1,11 +1,22 @@
 # Create Element Extended
-Extends the native DOM `document.createElement` method to conform to the target API of JSX transpilation, i.e.
+Extends `document.createElement` to conform to the target API of JSX transpilation.
 
-    createElement(tagName [, attributes [, children]])
+```js
+var element = document.createElement(tagName[, attributes[, children]])
+```
 
-This is useful when frequently creating DOM nodes on the fly.
+`tagName`
+: `string`. A string that specifies the type of element to be created.
 
-E.g.:
+`attributes`
+: `object`. Optional. An object of key-value pairs that correspond to `<key>="<value>"` attributes on the element.
+
+`children`
+: `string | Array<Element | string>`. Optional.
+  Note that this currently does not support `NodeList` or `HTMLCollection`.
+  To pass these, wrap them in `Array.from`.
+
+This package is useful when frequently creating DOM nodes on the fly, e.g.:
 
 ```js
 function makeSpinner(id) {
@@ -53,9 +64,8 @@ function makeSpinner(id) {
 }
 ```
 
-When usign babel, ...
-
-asdfadsf  `npm` `install` `babel-plugin-transform-react-jsx`
+When using babel and `babel-plugin-transform-react-jsx` you can use JSX,
+which transpiles to the example above.
 
 ```js
 /* pragma: document.createElement */
@@ -74,7 +84,8 @@ function makeSpinner(id) {
 }
 ```
 
-Instead of `pragma`, configure babel, e.g. via `.babelrc`:
+
+Instead of setting `pragma` via comment, you can configure babel globally via `.babelrc`:
 
 ```json
 {
