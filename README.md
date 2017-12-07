@@ -5,17 +5,6 @@ Extends `document.createElement` to conform to the target API of JSX transpilati
 var element = document.createElement(tagName[, attributes[, children]])
 ```
 
-`tagName`
-: `string`. A string that specifies the type of element to be created.
-
-`attributes`
-: `object`. Optional. An object of key-value pairs that correspond to `<key>="<value>"` attributes on the element.
-
-`children`
-: `string | Array<Element | string>`. Optional.
-  Note that this currently does not support `NodeList` or `HTMLCollection`.
-  To pass these, wrap them in `Array.from`.
-
 This package is useful when frequently creating DOM nodes on the fly, e.g.:
 
 ```js
@@ -97,12 +86,16 @@ Instead of setting `pragma` via comment, you can configure babel globally via `.
 }
 ```
 
-
 ## FAQ
 ### I don't like monkey-patching...
 ```js
 import { createElement } from 'create-element-extended/library'
 /* pragma: createElement */
+```
+
+### Type signature?
+```ts
+function (tagName: string, attributes: object, children: string | Array<Element | string>): Element
 ```
 
 ### How is this different from `jsx-dom`, `jsx-create-element`, `nativejsx`, and `jsx-foobar`?
