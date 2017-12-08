@@ -93,9 +93,33 @@ import { createElement } from 'create-element-extended/library'
 /* pragma: createElement */
 ```
 
+### How do I use this without webpack, browserify?
+```html
+<script src="https://unpkg.com/create-element-extended"></script>
+```
+-- or --
+
+```html
+<script src="https://unpkg.com/create-element-extended/dist/library.min.js"></script>
+<script>var createElement = createElementExtended.createElement</script>
+```
+
 ### Type signature?
 ```ts
 function (tagName: string, attributes: object, children: string | Array<Element | string>): Element
+```
+
+### How do I use dis with `jsdom` or other DOM implementations?
+```js
+import { JSDOM } from 'jsdom';
+import { createCreateElement } from 'create-element-extended/factory';
+
+const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
+
+const createElement = createCreateElement(
+  tagName => dom.window.document.createElement(tagName),
+  str => dom.window.document.createTextNode(str),
+);
 ```
 
 ### How is this different from `jsx-dom`, `jsx-create-element`, `nativejsx`, and `jsx-foobar`?
@@ -126,20 +150,6 @@ export const createCreateElement = (createElement, createTextNode) => {
   };
 };
 ```
-
-### How do I use dis with `jsdom` or other DOM implementations?
-```js
-import { JSDOM } from 'jsdom';
-import { createCreateElement } from 'create-element-extended/factory';
-
-const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-
-const createElement = createCreateElement(
-  tagName => dom.window.document.createElement(tagName),
-  str => dom.window.document.createTextNode(str),
-);
-```
-
 
 ### Why not jQuery?
 Courage.

@@ -2,5 +2,9 @@
   "extends": "eslint-config-airbnb",
   "env": {
     "browser": true,
+  },
+  "rules": {
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
   }
 }

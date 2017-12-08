@@ -12,7 +12,7 @@ export const createCreateElement = (createElement, createTextNode) => {
     if (children) {
       if (typeof children === 'string') el.appendChild(createTextNode(children));
       else if (children.length) Array.prototype.forEach.call(children, appendChild, el);
-      else appendChild.call(el, children);
+      else el.appendChild(children);
     }
 
     return el;
