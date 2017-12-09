@@ -1,4 +1,7 @@
 # Create Element Extended
+
+[![Build Status](https://travis-ci.org/qwtel/create-element-extended.svg?branch=master)](https://travis-ci.org/qwtel/create-element-extended)
+
 Extends `document.createElement` to conform to the target API of JSX transpilation.
 
 ```js
@@ -38,7 +41,7 @@ function makeSpinner(id) {
 }
 ```
 
-With `create-element-extended`, this becomes:
+becomes
 
 ```js
 import 'create-element-extended';
@@ -137,13 +140,17 @@ export const createCreateElement = (createElement, createTextNode) => {
   return (tagName, attributes, children) => {
     const el = createElement(tagName);
 
-    if (attributes) {
-      Object.keys(attributes).forEach(attr => el.setAttribute(attr, attributes[attr]));
-    }
+    for (const attr in attributes) el.setAttribute(attr, attributes[attr]);
 
     if (children) {
-      if (Array.isArray(children)) children.forEach(appendChild, el);
-      else appendChild.call(el, children);
+      if (typeof children === 'string') {
+        el.appendChild(createTextNode(children));
+      } else if (children.length) {
+        const copy = Array.prototype.slice.call(children, 0);
+        Array.prototype.forEach.call(copy, appendChild, el);
+      } else {
+        el.appendChild(children);
+      }
     }
 
     return el;

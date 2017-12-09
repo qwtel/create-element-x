@@ -21,7 +21,7 @@ describe('Create Element Extended', () => {
     assert(createElement);
   });
 
-  it('should create a simple elements', () => {
+  it('should create a simple element', () => {
     const div = createElement('div');
     const span = createElement('span');
     const option = createElement('option');
@@ -30,7 +30,7 @@ describe('Create Element Extended', () => {
     assert.equal(option.tagName, 'OPTION');
   });
 
-  it('should set simple attributes', () => {
+  it('should set attributes', () => {
     const div = createElement('div', { id: 'test', class: 'test1 test2' });
     assert.equal(div.id, 'test');
     assert(div.classList.contains('test1'));
@@ -42,14 +42,14 @@ describe('Create Element Extended', () => {
     assert.equal(div.dataset.foo, 'bar');
   });
 
-  it('should set a child', () => {
+  it('should append a child', () => {
     const child = createElement('span');
     const div = createElement('div', null, child);
     assert.equal(div.children.length, 1);
     assert.equal(div.children[0], child);
   });
 
-  it('should set multiple children', () => {
+  it('should append multiple children', () => {
     const div = createElement('div', null, [
       createElement('span', { id: 'span-1' }),
       createElement('span', { id: 'span-2' }),
@@ -83,18 +83,18 @@ describe('Create Element Extended', () => {
     assert(div.children[0].children[0].children[0].children[0].children[0].children.length);
   });
 
-  it('should set text content', () => {
+  it('should append a text node', () => {
     const span = createElement('div', null, 'Text');
     assert.equal(span.textContent, 'Text');
   });
 
-  it('should set multiple text children', () => {
+  it('should append multiple text nodes', () => {
     const span = createElement('div', null, ['Hello', ', ', 'World']);
     assert.equal(span.textContent, 'Hello, World');
     assert.equal(span.childNodes.length, 3);
   });
 
-  it('should allow text and DOM node children mixed', () => {
+  it('should append text nodes and element nodes', () => {
     const div = createElement('div', null, [
       createElement('span', null, 'Hello'),
       ', ',
