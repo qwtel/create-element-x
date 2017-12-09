@@ -1,7 +1,7 @@
 {
-  "name": "create-element-extended",
-  "description": "Extension of the native DOM createElement method to match JSX",
-  "main": "dist/index.min.js",
+  "name": "create-element-x",
+  "description": "Extends `document.createElement` to conform to the target API of JSX",
+  "main": "dist/index.js",
   "authors": [
     "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
   ],
@@ -10,9 +10,10 @@
     "dom",
     "jsx",
     "create-element",
-    "element"
+    "element",
+    "api"
   ],
-  "homepage": "https://github.com/qwtel/create-element-extended",
+  "homepage": "https://github.com/qwtel/create-element-x",
   "ignore": [
     "**/.*",
     "node_modules",

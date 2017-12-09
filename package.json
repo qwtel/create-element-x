@@ -1,7 +1,7 @@
 {
-  "name": "create-element-extended",
+  "name": "create-element-x",
   "version": "1.0.0-pre.2",
-  "description": "Extension of the native DOM createElement method to match JSX",
+  "description": "Extends `document.createElement` to conform to the target API of JSX",
   "main": "index.js",
   "browser": "dist/index.min.js",
   "scripts": {
@@ -32,14 +32,17 @@
     "webpack-merge": "^4.1.1",
     "yargs": "^10.0.3"
   },
+  "directories": {
+    "test": "test"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qwtel/create-element-extended.git"
+    "url": "git+https://github.com/qwtel/create-element-x.git"
   },
   "bugs": {
-    "url": "https://github.com/qwtel/create-element-extended/issues"
+    "url": "https://github.com/qwtel/create-element-x/issues"
   },
-  "homepage": "https://github.com/qwtel/create-element-extended#readme",
+  "homepage": "https://github.com/qwtel/create-element-x#readme",
   "keywords": [
     "dom",
     "jsx",

@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("createElementExtended", [], factory);
+		define("createElementX", [], factory);
 	else if(typeof exports === 'object')
-		exports["createElementExtended"] = factory();
+		exports["createElementX"] = factory();
 	else
-		root["createElementExtended"] = factory();
+		root["createElementX"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache

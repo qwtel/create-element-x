@@ -1,6 +1,6 @@
 # Create Element Extended
 
-[![Build Status](https://travis-ci.org/qwtel/create-element-extended.svg?branch=master)](https://travis-ci.org/qwtel/create-element-extended)
+[![Build Status](https://travis-ci.org/qwtel/create-element-x.svg?branch=master)](https://travis-ci.org/qwtel/create-element-x)
 
 Extends `document.createElement` to conform to the target API of JSX transpilation.
 
@@ -44,7 +44,7 @@ function makeSpinner(id) {
 becomes
 
 ```js
-import 'create-element-extended';
+import 'create-element-x';
 
 function makeSpinner(id) {
   return document.createElement('div', { id, 'class': 'sk-folding-cube' }, [
@@ -62,7 +62,7 @@ which transpiles to the example above.
 ```js
 /* pragma: document.createElement */
 
-import 'create-element-extended';
+import 'create-element-x';
 
 function makeSpinner(id) {
   return (
@@ -92,18 +92,18 @@ Instead of setting `pragma` via comment, you can configure babel globally via `.
 ## FAQ
 ### I don't like monkey-patching...
 ```js
-import { createElement } from 'create-element-extended/library'
+import { createElement } from 'create-element-x/library'
 /* pragma: createElement */
 ```
 
 ### How do I use this without webpack, browserify?
 ```html
-<script src="https://unpkg.com/create-element-extended"></script>
+<script src="https://unpkg.com/create-element-x"></script>
 ```
 -- or --
 
 ```html
-<script src="https://unpkg.com/create-element-extended/dist/library.min.js"></script>
+<script src="https://unpkg.com/create-element-x/dist/library.min.js"></script>
 <script>var createElement = createElementExtended.createElement</script>
 ```
 
@@ -115,7 +115,7 @@ function (tagName: string, attributes: object, children: string | Array<Element 
 ### How do I use dis with `jsdom` or other DOM implementations?
 ```js
 import { JSDOM } from 'jsdom';
-import { createCreateElement } from 'create-element-extended/factory';
+import { createCreateElement } from 'create-element-x/factory';
 
 const { window: { document } } = new JSDOM();
 
