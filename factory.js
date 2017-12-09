@@ -10,9 +10,14 @@ export const createCreateElement = (createElement, createTextNode) => {
     for (const attr in attributes) el.setAttribute(attr, attributes[attr]);
 
     if (children) {
-      if (typeof children === 'string') el.appendChild(createTextNode(children));
-      else if (children.length) Array.prototype.forEach.call(children, appendChild, el);
-      else el.appendChild(children);
+      if (typeof children === 'string') {
+        el.appendChild(createTextNode(children));
+      } else if (children.length) {
+        const copy = Array.prototype.slice.call(children, 0);
+        Array.prototype.forEach.call(copy, appendChild, el);
+      } else {
+        el.appendChild(children);
+      }
     }
 
     return el;

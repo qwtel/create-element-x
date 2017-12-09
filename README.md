@@ -114,11 +114,11 @@ function (tagName: string, attributes: object, children: string | Array<Element 
 import { JSDOM } from 'jsdom';
 import { createCreateElement } from 'create-element-extended/factory';
 
-const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
+const { window: { document } } = new JSDOM();
 
 const createElement = createCreateElement(
-  tagName => dom.window.document.createElement(tagName),
-  str => dom.window.document.createTextNode(str),
+  tagName => document.createElement(tagName),
+  text => document.createTextNode(text),
 );
 ```
 
