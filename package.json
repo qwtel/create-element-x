@@ -4,6 +4,9 @@
   "description": "Extends document.createElement to conform to the target API of JSX",
   "main": "index.js",
   "files": [
+    "index.js",
+    "library.js",
+    "factory.js",
     "umd/"
   ],
   "scripts": {
@@ -50,5 +53,10 @@
     "create-element",
     "element",
     "api"
-  ]
+  ],
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
 }
