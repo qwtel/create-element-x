@@ -2,9 +2,9 @@
   "name": "create-element-x",
   "version": "1.0.0-pre.6",
   "description": "Extends document.createElement to conform to the target API of JSX",
-  "main": "patch.js",
+  "main": "index.js",
   "files": [
-    "patch.js",
+    "index.js",
     "library.js",
     "factory.js",
     "dist/"
