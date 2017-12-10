@@ -98,12 +98,12 @@ import { createElement } from 'create-element-x/library'
 
 ### How do I use this without webpack, browserify?
 ```html
-<script src="https://unpkg.com/create-element-x/umd/create-element-x.min.js"></script>
+<script src="https://unpkg.com/create-element-x/dist"></script>
 ```
 -- or --
 
 ```html
-<script src="https://unpkg.com/create-element-x/umd/create-element-x-library.min.js"></script>
+<script src="https://unpkg.com/create-element-x/dist/library.js"></script>
 <script>var createElement = createElementExtended.createElement</script>
 ```
 
