@@ -2,20 +2,21 @@
   "name": "create-element-x",
   "version": "1.0.0-pre.5",
   "description": "Extends document.createElement to conform to the target API of JSX",
-  "main": "index.js",
+  "main": "patch.js",
   "files": [
-    "index.js",
+    "patch.js",
     "library.js",
     "factory.js",
-    "umd/"
+    "dist/"
   ],
   "scripts": {
+    "clean": "rm -rf dist",
     "test": "mocha --require babel-core/register",
     "lint": "eslint .",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
     "build:dev": "webpack",
-    "prepare": "npm run lint && npm run test && npm run build",
+    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "version": "npm run prepare && git add ."
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
