@@ -1,7 +1,7 @@
 {
   "name": "create-element-x",
   "description": "Extends `document.createElement` to conform to the target API of JSX",
-  "main": "dist/index.js",
+  "main": "umd/create-element-x.js",
   "authors": [
     "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)"
   ],

@@ -1,8 +1,6 @@
 /* eslint-env node, mocha */
 /* eslint-disable arrow-body-style, function-paren-newline, one-var, one-var-declaration-per-line */
 
-require('babel-polyfill');
-
 const { createCreateElement } = require('../factory.js');
 
 const { JSDOM } = require('jsdom');
