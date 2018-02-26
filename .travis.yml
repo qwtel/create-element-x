@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - "node"
-  - "8"
+  - node
+deploy:
+  provider: npm
+  email: mail@qwtel.com
+  api_key:
+    secure: qAqgQgCQLjFK1a8RpCncUwgfpgkkM/GgUTTdzbtQJdmNkD/6kFf3Pi8VypzIaXuOZoZjXtO1Nr5EzD/wOQe/9lk/jxH+4ut23AWbh3akKwN2j3uL7NTaQyKXjhVylH4MMkPXFehCMeynXS4j9WDgG/AVfRDCDKkn8d3jThHbx/mlNLQLafq1UNXPMQZC/YGUQDqDhJucfMi+F5YUlnw1sz+8Q6SER1r/BPCjp9YZTHgA42RgMAKzhu81a1TXT7TqDvg8FA+H4c0wiwKKh4mI0xvnzyMITaPo6pIz9YYXe1uVg7cRuAx7SqLiQc7pxXlHYM/Y7UoQJOfCe3yIyblVIMYRcM138hQQi9D9gmQyDsWixah99y4Nw+sHHQIgHDh6VwyQuzossx5wBk5f8Q2g3+CLynihqifQ4tXMW1FEzG+ByvH5gkFQ3mkKb+QKD3BJa6NflZONqk4G61oldEhN0hC98EMWKsnl/EudAePG8xVPPIVUXco9Xx/BTFUl85wsDW3oHURPw5QoPvpeiSVVoXCRSH32EHPuxQ3/qzVMRVZxWBgXURPec6OJ0Uv6c60xh5OHo6AAWdW5B9f36nLs+DQdxs7EGtudBXRijqPVSDrBhbdHzNagJMEUBU8fYr4DKV1ghZCPSCulsaR5/rdxUdRQ10NCpR4BMgi3mqIo6nI=
+  on:
+    tags: true
+    repo: qwtel/create-element-x
+  skip_cleanup: true
