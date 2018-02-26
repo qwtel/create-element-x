@@ -91,20 +91,26 @@ Instead of setting `pragma` via comment, you can configure babel globally via `.
 
 ## FAQ
 ### I don't like monkey-patching...
+Import the library funtion instead:
 ```js
-import { createElement } from 'create-element-x/library'
 /* pragma: createElement */
+import { createElement } from 'create-element-x/library'
 ```
 
 ### How do I use this without webpack, browserify?
+Monkey-patch:
 ```html
-<script src="https://unpkg.com/create-element-x/dist"></script>
+<script src="https://unpkg.com/create-element-x/dist/index.min.js"></script>
 ```
--- or --
 
+Library:
 ```html
-<script src="https://unpkg.com/create-element-x/dist/library.js"></script>
-<script>var createElement = createElementExtended.createElement</script>
+<script src="https://unpkg.com/create-element-x/dist/library.min.js"></script>
+<script>
+  const { createElement } = window.createElementX;
+  createElement('div', { id, 'class': 'sk-folding-cube' });
+  // ...
+</script>
 ```
 
 ### Type signature?
@@ -112,7 +118,7 @@ import { createElement } from 'create-element-x/library'
 function (tagName: string, attributes: object, children: string | Array<Element | string>): Element
 ```
 
-### How do I use dis with `jsdom` or other DOM implementations?
+### How do I use this with `jsdom` or other DOM implementations?
 ```js
 import { JSDOM } from 'jsdom';
 import { createCreateElement } from 'create-element-x/factory';
@@ -126,43 +132,7 @@ const createElement = createCreateElement(
 ```
 
 ### How is this different from `jsx-dom`, `jsx-create-element`, `nativejsx`, and `jsx-foobar`?
-This package does less. All I wanted was to create a DOM node.
-
-Here is (almost) the entire source code:
-
-```js
-export const createCreateElement = (createElement, createTextNode) => {
-  function appendChild(c) {
-    if (typeof c === 'string') this.appendChild(createTextNode(c));
-    else this.appendChild(c);
-  }
-
-  return (tagName, attributes, children) => {
-    const el = createElement(tagName);
-
-    for (const attr in attributes) el.setAttribute(attr, attributes[attr]);
-
-    if (children) {
-      if (typeof children === 'string') {
-        el.appendChild(createTextNode(children));
-      } else if (children.length) {
-        const copy = Array.prototype.slice.call(children, 0);
-        Array.prototype.forEach.call(copy, appendChild, el);
-      } else {
-        el.appendChild(children);
-      }
-    }
-
-    return el;
-  };
-};
-```
+This package does less. All it does is to create a DOM node.
 
 ### Why not jQuery?
 Courage.
-
-### Why not React/Vue/Zoidberg?
-Because all I wanted was to create a DOM node.
-
-### LOL, the DOM is way to slow to re-render the entire page every time. React has a tree diffing algorithm that only updates the parts of the DOM that have changed, and it's super fast, and everybody should use it, and it's like the Doom 3 rendering engine, and...
-Cool.
