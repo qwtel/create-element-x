@@ -1,5 +1,7 @@
 # Create Element Extended
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/qwtel/create-element-x.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/qwtel/create-element-x.svg?branch=master)](https://travis-ci.org/qwtel/create-element-x)
 
 Extends `document.createElement` to conform to the target API of JSX transpilation.
