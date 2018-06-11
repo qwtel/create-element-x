@@ -6,5 +6,6 @@
   "rules": {
     "guard-for-in": "off",
     "no-restricted-syntax": "off",
+    "no-cond-assign": "off",
   }
 }

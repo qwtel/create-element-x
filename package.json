@@ -11,12 +11,12 @@
   ],
   "scripts": {
     "clean": "rm -rf dist",
-    "test": "npm run test:lint && npm run test:test",
-    "test:lint": "eslint .",
-    "test:test": "mocha --require babel-core/register",
+    "lint": "eslint .",
+    "test": "mocha --require babel-core/register",
     "build": "npm run build:prod & npm run build:dev & wait",
     "build:prod": "webpack --env prod",
     "build:dev": "webpack",
+    "preversion": "npm run lint",
     "prepublishOnly": "npm run test && npm run clean && npm run build"
   },
   "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
