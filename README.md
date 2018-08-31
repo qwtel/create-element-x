@@ -113,11 +113,6 @@ Library:
 </script>
 ```
 
-### Type signature?
-```ts
-function (tagName: string, attributes: object, children: string | Array<Element | string>): Element
-```
-
 ### How do I use this with `jsdom` or other DOM implementations?
 ```js
 import { JSDOM } from 'jsdom';
