@@ -1,13 +1,14 @@
-const isArray = Array.isArray
-  || (arg => Object.prototype.toString.call(arg) === '[object Array]');
+const isArray =
+  Array.isArray ||
+  (arg => Object.prototype.toString.call(arg) === "[object Array]");
 const isHTMLCollection = arg =>
-  Object.prototype.toString.call(arg) === '[object HTMLCollection]';
+  Object.prototype.toString.call(arg) === "[object HTMLCollection]";
 const isNodeList = arg =>
-  Object.prototype.toString.call(arg) === '[object NodeList]';
+  Object.prototype.toString.call(arg) === "[object NodeList]";
 
 export const createCreateElement = (createElement, createTextNode) => {
   function appendChild(c) {
-    if (typeof c === 'string') this.appendChild(createTextNode(c));
+    if (typeof c === "string") this.appendChild(createTextNode(c));
     else this.appendChild(c);
   }
 
@@ -20,9 +21,10 @@ export const createCreateElement = (createElement, createTextNode) => {
     // as 3rd parameter.
     let cs = children[0];
     let shouldCopy;
-    if (isArray(cs)
-      || (shouldCopy = isHTMLCollection(cs))
-      || (shouldCopy = isNodeList(cs))
+    if (
+      isArray(cs) ||
+      (shouldCopy = isHTMLCollection(cs)) ||
+      (shouldCopy = isNodeList(cs))
     ) {
       // In case use user provides a `NodeList` or `HTMLCollection`,
       // appening will have the effect of removing the item the current
@@ -33,11 +35,11 @@ export const createCreateElement = (createElement, createTextNode) => {
       }
       Array.prototype.forEach.call(cs, appendChild, el);
 
-    // Support new JSX syntax, where each child is an additional
-    // function parameter.
+      // Support new JSX syntax, where each child is an additional
+      // function parameter.
     } else {
-      Array.prototype.forEach.call(children, (child) => {
-        if (typeof child === 'string') {
+      Array.prototype.forEach.call(children, child => {
+        if (typeof child === "string") {
           el.appendChild(createTextNode(child));
         } else {
           el.appendChild(child);
