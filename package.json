@@ -1,6 +1,6 @@
 {
   "name": "create-element-x",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Extends document.createElement to conform to the target API of JSX",
   "main": "index.js",
   "files": [
