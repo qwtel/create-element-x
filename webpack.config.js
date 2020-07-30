@@ -2,7 +2,7 @@ const { resolve } = require("path");
 
 const { BannerPlugin, EnvironmentPlugin } = require("webpack");
 
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const {
   argv: { mode }
 } = require("yargs");
